@@ -127,7 +127,7 @@ http://localhost:5000/predict
 
 ## Usage Tutorial
 
-See [USAGE.md](USAGE.md) for step-by-step instructions and example API calls.
+See [TUTORIAL.md](TUTORIAL.md) for step-by-step instructions and example API calls.
 
 ## Classifier Model Training
 * If you want to train model on specific industry or ticker update ticker.py under scripts
@@ -159,12 +159,15 @@ python scripts\train.py
 ## Notebook Summary
 1. We created a testing_models_regression_for_volatility.ipynb under notebook folder for garch model prepration.
 >>*1.1*. We made a way to fetch data from yahoo finance pytho api yfinance
+
 >>*1.2*. Training model
 Note:
 for our project we will have to train the garch model everytime for new request. Which it is not to expensive as the model are optimized and fast. 
 2. Created a classifier_model_building_and_loading_data.ipynb for the classification model which will give up or down signal.
 >>*2.1*. We made a function that fetchs the data.
+
 >>*2.2*. We will difine pipeline and sperate feature as numerical and categorical for scaling pupose.
+
 >>*2.3*. Hyper tuning the best model after getting the best base model.
 
 ## Scripts Summary
