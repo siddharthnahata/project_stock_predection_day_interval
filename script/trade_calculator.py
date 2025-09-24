@@ -89,9 +89,12 @@ def request_to_api_loacal_host(ticker: str, risk: float):
             print(f"Could not fetch current price for {ticker}")
             return (ticker, type, ticker_proba, ticker_predicted_change, ticker_predicted_var, confidence, None, None, None, aic_score)
 
-        sl_percentage = ticker_predicted_change * risk
+        # Convert predicted change to decimal
+        target_percentage = ticker_predicted_change / 100
+        sl_percentage = target_percentage * risk
+
         sl_price = stop_loss_calculator(price=current_price, percentage=sl_percentage, long=long)
-        target_price = target_calculator(price=current_price, percentage=ticker_predicted_change, long=long)
+        target_price = target_calculator(price=current_price, percentage=target_percentage, long=long)
 
         return (ticker, type, ticker_proba, ticker_predicted_change, ticker_predicted_var, confidence, current_price, target_price, sl_price, aic_score)
     except requests.exceptions.RequestException as e:
