@@ -125,6 +125,14 @@ http://localhost:5000/predict
 
 ```
 
+Step 6. Run you API request
+
+```
+
+python main.py
+
+```
+
 ## Usage Tutorial
 
 See [TUTORIAL.md](TUTORIAL.md) for step-by-step instructions and example API calls.
@@ -175,7 +183,8 @@ for our project we will have to train the garch model everytime for new request.
 2. classification model script created this handles the model building part.
 3. Created a train.py file which compile data fetching and train the model.
 4. created a garch script which predicts volatility.
-5. some of the function are not covered in the summary which are important too can look script for the description
+5. some of the function are not covered in the summary which are important too can look script for the description.
+6. added script which calculates trade positionings.
 
 
 ## Conclusion
