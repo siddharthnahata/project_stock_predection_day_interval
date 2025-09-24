@@ -1,3 +1,5 @@
+import math
+import numpy as np
 from fastapi import FastAPI
 from pydantic import BaseModel
 import pandas as pd
@@ -12,6 +14,8 @@ MODEL_PATH = f"{MODEL_FOLDER}/{MODEL_FILE_NAME}"
 
 model = joblib.load(MODEL_PATH)
 
+print("Starting up the API model....")
+
 app = FastAPI(title="ML API with Automated feature fetech")
 
 class InputData(BaseModel):
@@ -21,22 +25,7 @@ class InputData(BaseModel):
 def make_json_serializable(obj):
     """
     Recursively convert objects into JSON-serializable formats.
-
-    This function is useful when working with FastAPI / Flask responses or 
-    saving data that may include NumPy, Pandas, or other non-serializable objects.
-
-    Handles:
-    - dict → ensures keys/values are serializable
-    - list/tuple → serializes each element
-    - numpy/pandas scalars → converts with `.item()`
-    - Pandas Timestamp/Timedelta → converts to string
-    - everything else → returned as-is or converted to string
-
-    Args:
-        obj: Any object (dict, list, pandas object, numpy scalar, etc.)
-
-    Returns:
-        JSON-safe representation of the object.
+    Also converts NaN and infinite values to None.
     """
     if isinstance(obj, dict):
         return {str(k): make_json_serializable(v) for k, v in obj.items()}
@@ -44,11 +33,23 @@ def make_json_serializable(obj):
         return [make_json_serializable(v) for v in obj]
     elif hasattr(obj, "item"):
         try:
-            return obj.item()
+            value = obj.item()
+            if isinstance(value, float) and (math.isnan(value) or math.isinf(value)):
+                return None
+            return value
         except Exception:
             return str(obj)
     elif isinstance(obj, (pd.Timestamp, pd.Timedelta)):
         return str(obj)
+    elif isinstance(obj, float):
+        if math.isnan(obj) or math.isinf(obj):
+            return None
+        return obj
+    elif isinstance(obj, np.generic):
+        value = obj.item()
+        if isinstance(value, float) and (math.isnan(value) or math.isinf(value)):
+            return None
+        return value
     else:
         return obj
 
@@ -56,23 +57,28 @@ def make_json_serializable(obj):
 def predict(data: InputData):
     try:
         # fetching the data from function made and assigning it  
+        print("Starting fetching data process...")
         df, X, _ = safe_fetch(data.ticker)
         last_date = df.index[-1]
 
+        print("Aligning the feature to predict....")
         features = X.tail(1) # getting on which prediction is to be made
 
+        print("Sending the data for clf model.")
         direction_pred, direction_proba = predict_with_threshold(
             model, features, data.threshold # trigger model for direction prediction
         )
 
         direction = "Up" if direction_pred == 1 else "Down"
         
+        print("Sending the data for Garch model.")
         # garch model prediton for the volatility
         garch_reply = volatility_predict(df)
 
         # Make sure garch_reply is fully serializable
         garch_reply = make_json_serializable(garch_reply)
 
+        print("Sucessfull")
         return {
             "Last Date": str(last_date),
             "Direction Prediction": {
