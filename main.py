@@ -59,6 +59,6 @@ data = pd.DataFrame(results_list)
 
 try:
     data.to_csv(TRADE_DATA_PATH, index=False)
-    print("Sucessfully savec the data on", TRADE_DATA_PATH)
+    print("Sucessfully saved the data on", TRADE_DATA_PATH)
 except Exception as e:
     print("Error while saving: ", e)
