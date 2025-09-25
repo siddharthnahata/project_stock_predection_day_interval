@@ -50,7 +50,6 @@ Step 8. main.py
 python main.py
 
 ```
-
 Note: you have ensure api is live.
-- Output will look like this [trade_data/trade_results.csv](trade_data/trade_results.csv)
+- Output will look like this [trade_data/](trade_data/)
 

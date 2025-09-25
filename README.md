@@ -78,7 +78,7 @@ This project builds a pipeline to forecast short-term stock movements by combini
 
 * Local Host 
 
-## How to run
+## How to run API
 
 Step 1. Cloning the repository.
 
@@ -122,14 +122,6 @@ Step 5. Prediction application
 ```
 
 http://localhost:5000/predict
-
-```
-
-Step 6. Run you API request
-
-```
-
-python main.py
 
 ```
 
