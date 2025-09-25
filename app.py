@@ -58,7 +58,13 @@ def predict(data: InputData):
     try:
         # fetching the data from function made and assigning it  
         print("Starting fetching data process...")
-        df, X, _ = safe_fetch(data.ticker)
+        df, X, _ = safe_fetch(
+            data.ticker,
+            interval="1d",
+            period="1y",
+            feature_cal=True
+        )
+        
         last_date = df.index[-1]
 
         print("Aligning the feature to predict....")

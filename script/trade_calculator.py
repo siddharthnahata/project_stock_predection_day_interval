@@ -1,21 +1,5 @@
-import yfinance as yf
 import requests
-
-def ticker_price_fetch(ticker: str):
-    """
-        this function is to fetch the current available price of ticker on yfinance 
-    """
-    try:
-        t = yf.Ticker(ticker) 
-        # Fetch price
-        df = t.history(interval="1d", period="1d")
-        if df.empty:
-            print(f"[WARN] No data for {ticker}")
-            return None
-        data = df['Close']
-        return float(data.values[-1])
-    except Exception as e:
-        return f"Error Occured while fetching {ticker}"
+from model_data_fetch import safe_fetch
 
 def target_calculator(price: float, percentage: float, long: bool):
     profit = price * percentage
@@ -84,7 +68,14 @@ def request_to_api_loacal_host(ticker: str, risk: float):
                 elif ticker_proba > 0.52 or ticker_proba < 0.48:
                     confidence = "Medium"
 
-        current_price = ticker_price_fetch(ticker)
+        df, _, _ = safe_fetch(
+            ticker, 
+            interval="1d",
+            period="1d",
+            feature_cal=False
+        )
+
+        current_price = float(df['Close'].values[-1])
         if current_price is None:
             print(f"Could not fetch current price for {ticker}")
             return (ticker, type, ticker_proba, ticker_predicted_change, ticker_predicted_var, confidence, None, None, None, aic_score)
