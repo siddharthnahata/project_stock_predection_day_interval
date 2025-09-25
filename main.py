@@ -13,7 +13,7 @@ TRADE_DATA_PATH = f"{TRADE_DATA_FOLDER}/{TRADE_DATA_FILE_NAME}"
 os.makedirs(TRADE_DATA_FOLDER, exist_ok=True)
 
 sample_ticker = None
-while sample_ticker:
+while sample_ticker is None:
     try:
         user_input = input("Enter the number of ticker to be sampled. ")
         sample_ticker = int(user_input)
@@ -24,7 +24,7 @@ while sample_ticker:
 tickers = random.sample(tickers_ns, sample_ticker)
 
 risk_rate = None
-while risk_rate:
+while risk_rate is None:
     try:
         user_input = input("Enter the risk ratio. ")
         risk_rate = float(user_input)

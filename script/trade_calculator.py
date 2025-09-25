@@ -1,5 +1,5 @@
 import requests
-from model_data_fetch import safe_fetch
+from script.model_data_fetch import safe_fetch
 
 def target_calculator(price: float, percentage: float, long: bool):
     profit = price * percentage
