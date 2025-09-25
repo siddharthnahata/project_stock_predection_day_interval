@@ -56,4 +56,9 @@ for i, ((ticker, type, ticker_proba, ticker_predicted_change, ticker_predicted_v
 
 # Create DataFrame and save to CSV
 data = pd.DataFrame(results_list)
-data.to_csv(TRADE_DATA_PATH, index=False)
+
+try:
+    data.to_csv(TRADE_DATA_PATH, index=False)
+    print("Sucessfully savec the data on", TRADE_DATA_PATH)
+except Exception as e:
+    print("Error while saving: ", e)
