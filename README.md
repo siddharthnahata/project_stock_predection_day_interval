@@ -49,23 +49,6 @@ This project builds a pipeline to forecast short-term stock movements by combini
 
 * Combination mimics industry practice (hedge funds and risk desks).
 
-## 🔹 Results
-
-* Typical Apple daily volatility forecast ≈ 1–2%, consistent with real market behavior.
-
-* Forecasts capture volatility clustering (calm vs high-risk periods).
-
-* Direction classifier provides a probabilistic edge (>50% win rate).
-
-* Outlier moves (e.g., +3.6% in one day) remain rare but within model’s confidence bands.
-
-## 🔹 Limitations
-
-* GARCH models forecast risk, not direction.
-
-* Daily return prediction is inherently noisy.
-
-* Yahoo Finance (yfinance) has a 1-day delay for daily candles → intraday data may be needed for real-time use.
 
 
 ## Tech Stack Used
