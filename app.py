@@ -8,6 +8,9 @@ from script.model_data_fetch import safe_fetch
 from script.classifier_model_training import predict_with_threshold
 from script.train_volatility_prediction import volatility_predict
 
+import warnings
+warnings.filterwarnings('ignore')
+
 MODEL_FILE_NAME = "stock_prediction.pkl"
 MODEL_FOLDER = "model"
 MODEL_PATH = f"{MODEL_FOLDER}/{MODEL_FILE_NAME}"
@@ -64,7 +67,7 @@ def predict(data: InputData):
             period="1y",
             feature_cal=True
         )
-        
+
         last_date = df.index[-1]
 
         print("Aligning the feature to predict....")

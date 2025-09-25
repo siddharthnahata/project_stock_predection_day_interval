@@ -6,6 +6,9 @@ import concurrent.futures
 import random
 from datetime import datetime
 
+import warnings
+warnings.filterwarnings('ignore')
+
 TRADE_DATA_FOLDER = "trade_data"
 TRADE_DATA_FILE_NAME = f"trades-{datetime.now().strftime('%d-%m-%Y_%H-%M-%S')}.csv"
 TRADE_DATA_PATH = f"{TRADE_DATA_FOLDER}/{TRADE_DATA_FILE_NAME}"
