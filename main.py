@@ -7,7 +7,7 @@ import random
 from datetime import datetime
 
 TRADE_DATA_FOLDER = "trade_data"
-TRADE_DATA_FILE_NAME = f"trade_results{datetime.now().strftime("%d/%m/%Y %H:%M:%S")}.csv"
+TRADE_DATA_FILE_NAME = f"trades-{datetime.now().strftime('%d-%m-%Y_%H-%M-%S')}.csv"
 TRADE_DATA_PATH = f"{TRADE_DATA_FOLDER}/{TRADE_DATA_FILE_NAME}"
 
 os.makedirs(TRADE_DATA_FOLDER, exist_ok=True)
