@@ -1,6 +1,6 @@
 from tickers import get_ticker_nse # list of the tickers
-from script.model_data_fetch import model_data
-from script.classifier_model_training import stack_models
+from model_data_fetch import model_data
+from classifier_model_training import stack_models
 from datetime import datetime
 import joblib
 import os

@@ -69,20 +69,22 @@ def safe_fetch(ticker: str, interval: str, period: str, feature_cal: bool):
         print(f"[ERROR] {ticker}: {e}")
         return None
 
-def model_data(ticker_list):
+def model_data(ticker_list, interval="1d", period="1y", feature_cal=True):
     main_base_df_list = []
     X_list = []
     y_list = []
 
+    args = [(ticker, interval, period, feature_cal) for ticker in ticker_list]
     # Run in parallel
     with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
-        results = list(executor.map(safe_fetch, ticker_list))
+        results = list(executor.map(lambda p: safe_fetch(*p), args))
 
     # Collect results
-    for i, (df_fetch, X_fetch, y_fetch) in enumerate(results, start=1):
-        if df_fetch is None or X_fetch is None or y_fetch is None:
+    for i, result in enumerate(results, start=1):
+        if result is None or result[0] is None or result[1] is None or result[2] is None:
             print(f"{i}/{len(ticker_list)} skipped")
             continue
+        df_fetch, X_fetch, y_fetch = result
         main_base_df_list.append(df_fetch)
         X_list.append(X_fetch)
         y_list.append(y_fetch)
