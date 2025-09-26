@@ -43,6 +43,14 @@ def ticker_data_fetch(ticker: str, interval: str, period: str, feature_cal: bool
             sector = t.info.get('sector', 'Unknown')
             df['sector'] = sector
 
+            df.index = pd.to_datetime(df.index)
+            df['day_of_week'] = df.index.day_name()
+            
+            df['ticker'] = ticker
+
+            # Target (next-day return direction)
+            df['target'] = (df['Close'].shift(-1) > df['Close']).astype(int)
+
             # Target (next-day return direction)
             df['target'] = (df['Close'].shift(-1) > df['Close']).astype(int)
 
