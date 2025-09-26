@@ -1,0 +1,71 @@
+ticker,entry_price,entry_time,exit_price,exit_time,result,pnl
+ETHOSLTD.NS,Unable to fetch data(error),Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+DBSTOCKBRO.NS,25.649999618530273,2025-09-26 09:15:00+05:30,25.93390810583348,2025-09-26 09:17:00+05:30,stop_loss,-0.28390848730320783
+DELTAMAGNT.NS,86.4000015258789,2025-09-26 09:21:00+05:30,82.9800033569336,2025-09-26 13:13:00+05:30,timeout,3.4199981689453125
+HEUBACHIND.NS,593.0499877929688,2025-09-26 09:25:00+05:30,592.8499755859375,2025-09-26 14:54:00+05:30,timeout,0.20001220703125
+LATENTVIEW.NS,407.79998779296875,2025-09-26 09:15:00+05:30,406.6499938964844,2025-09-26 15:15:00+05:30,timeout,1.149993896484375
+DISHTV.NS,5.159999847412109,2025-09-26 09:15:00+05:30,5.090000152587891,2025-09-26 15:15:00+05:30,timeout,0.06999969482421875
+DHARMAJ.NS,322.95001220703125,2025-09-26 09:16:00+05:30,317.4884051405891,2025-09-26 10:07:00+05:30,target,5.461607066442127
+BLUECOAST.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+DCMNVL.NS,164.00999450683594,2025-09-26 09:28:00+05:30,165.0,2025-09-26 14:48:00+05:30,timeout,-0.9900054931640625
+BLAL.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+JETFREIGHT.NS,13.100000381469727,2025-09-26 09:15:00+05:30,12.930000305175781,2025-09-26 14:14:00+05:30,timeout,0.1700000762939453
+ATULAUTO.NS,491.5,2025-09-26 09:19:00+05:30,480.7213205513051,2025-09-26 13:53:00+05:30,stop_loss,-10.778679448694902
+ANIKINDS.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+ACMESOLAR.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+APLLTD.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+ARCHIDPLY.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+LIBAS.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+EIHOTEL.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+KALYANIFRG.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+HATHWAY.NS,14.3100004196167,2025-09-26 09:15:00+05:30,14.180000305175781,2025-09-26 15:15:00+05:30,timeout,0.13000011444091797
+BAJAJFINSV.NS,2039.0,2025-09-26 09:15:00+05:30,2006.5734626556184,2025-09-26 11:32:00+05:30,stop_loss,-32.426537344381586
+ARTEMISMED.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+BRIGADE.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+KIRLOSBROS.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+ANSALAPI.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+JKPAPER.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+ANGELONE.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+JYOTICNC.NS,887.0999755859375,2025-09-26 09:15:00+05:30,868.7000122070312,2025-09-26 15:15:00+05:30,timeout,18.39996337890625
+KPIGREEN.NS,471.3999938964844,2025-09-26 09:15:00+05:30,447.54998779296875,2025-09-26 15:15:00+05:30,timeout,23.850006103515625
+IDFCFIRSTB.NS,69.83000183105469,2025-09-26 09:15:00+05:30,68.66000366210938,2025-09-26 15:15:00+05:30,timeout,-1.1699981689453125
+LLOYDSME.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+ATLANTAA.NS,41.189998626708984,2025-09-26 09:15:00+05:30,39.70000076293945,2025-09-26 15:12:00+05:30,timeout,1.4899978637695312
+BLS.NS,342.79998779296875,2025-09-26 09:15:00+05:30,333.6499938964844,2025-09-26 15:15:00+05:30,timeout,-9.149993896484375
+DRCSYSTEMS.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+JAIBALAJI.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+KSL.NS,798.6500244140625,2025-09-26 09:15:00+05:30,780.0,2025-09-26 15:15:00+05:30,timeout,18.6500244140625
+CONTROLPR.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+KUANTUM.NS,114.69999694824219,2025-09-26 09:19:00+05:30,110.9800033569336,2025-09-26 15:14:00+05:30,timeout,3.7199935913085938
+INDIANB.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+EXIDEIND.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+EXCELINDUS.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+ASTRON.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+GODREJPROP.NS,1964.5,2025-09-26 09:15:00+05:30,1956.9000244140625,2025-09-26 15:15:00+05:30,timeout,7.5999755859375
+ERIS.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+AFFORDABLE.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+CENTEXT.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+KIRLOSENG.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+CEREBRAINT.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+APOLLOHOSP.NS,7611.0,2025-09-26 09:16:00+05:30,7497.0,2025-09-26 15:15:00+05:30,timeout,-114.0
+BHARATWIRE.NS,161.0399932861328,2025-09-26 09:16:00+05:30,157.3800048828125,2025-09-26 15:13:00+05:30,timeout,3.6599884033203125
+GPTINFRA.NS,116.0,2025-09-26 09:16:00+05:30,115.69999694824219,2025-09-26 15:13:00+05:30,timeout,0.3000030517578125
+JIOFIN.NS,301.1000061035156,2025-09-26 09:15:00+05:30,296.4520271432,2025-09-26 12:34:00+05:30,target,4.6479789603156405
+BIGBLOC.NS,56.25,2025-09-26 09:15:00+05:30,54.97742967601067,2025-09-26 09:37:00+05:30,target,1.2725703239893278
+INDIASHLTR.NS,863.6500244140625,2025-09-26 09:16:00+05:30,875.9857194300887,2025-09-26 09:47:00+05:30,stop_loss,-12.335695016026193
+DIFFNKG.NS,365.45001220703125,2025-09-26 09:17:00+05:30,351.5273167458578,2025-09-26 14:09:00+05:30,stop_loss,-13.922695461173475
+E2E.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+FSL.NS,355.54998779296875,2025-09-26 09:16:00+05:30,351.95001220703125,2025-09-26 15:15:00+05:30,timeout,3.5999755859375
+GARUDA.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+COFORGE.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+INDNIPPON.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+JAYSREETEA.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+GSLSU.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+FOCUS.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+IGARASHI.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+HEXATRADEX.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+ASIANENE.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+BSOFT.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+BIKAJI.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+IEL.NS,Trade not executed,Trade not executed,Trade not executed,Trade not executed,Trade not executed,0.0
+ELIN.NS,213.82000732421875,2025-09-26 09:17:00+05:30,202.47000122070312,2025-09-26 15:15:00+05:30,timeout,11.350006103515625
