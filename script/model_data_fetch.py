@@ -77,25 +77,30 @@ def safe_fetch(ticker: str, interval: str, period: str, feature_cal: bool):
         return None
 
 def model_data(ticker_list, interval="1d", period="5y", feature_cal=True):
+    print("Initializing the data structure....")
     main_base_df_list = []
     X_list = []
     y_list = []
 
     args = [(ticker, interval, period, feature_cal) for ticker in ticker_list]
     # Run in parallel
+
+    print("Starting the fetching process...")
     with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
         results = list(executor.map(lambda p: safe_fetch(*p), args))
 
+    failded_fetch = []
     # Collect results
-    for i, result in enumerate(results, start=1):
+    for i, (ticker, result) in enumerate(zip(ticker_list, results), start=1):
         if result is None or result[0] is None or result[1] is None or result[2] is None:
-            print(f"{i}/{len(ticker_list)} skipped")
+            print(f"{i}/{len(ticker_list)} skipped/failed to fetch: {ticker}")
+            failded_fetch.append(ticker)
             continue
         df_fetch, X_fetch, y_fetch = result
         main_base_df_list.append(df_fetch)
         X_list.append(X_fetch)
         y_list.append(y_fetch)
-        print(f"{i}/{len(ticker_list)} done")
+        print(f"{i}/{len(ticker_list)} done: {ticker}")
 
     main_base_df = pd.concat(main_base_df_list, axis=0).reset_index(drop=True)
     X = pd.concat(X_list, axis=0).reset_index(drop=True)
@@ -108,6 +113,5 @@ def model_data(ticker_list, interval="1d", period="5y", feature_cal=True):
             cat_cols.append(i)
         else:
             num_cols.append(i)
-    print("Categorical Features : ", cat_cols)
-    print("Numerical Features : ", num_cols)
+    print("Failded to fetch tickers")
     return X, y, cat_cols, num_cols
