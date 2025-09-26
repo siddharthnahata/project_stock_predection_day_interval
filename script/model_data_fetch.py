@@ -17,9 +17,13 @@ def ticker_data_fetch(ticker: str, interval: str, period: str, feature_cal: bool
         if feature_cal:
             df.index = df.index.strftime("%Y-%m-%d")
             # Technical indicators
+
+        # Technical indicators
             df["return_1d"] = df["Close"].pct_change(1)
-            df["return_5d"] = df["Close"].pct_change(5)
-            df["return_10d"] = df["Close"].pct_change(10)
+            df["return_7d"] = df["Close"].pct_change(7)
+            df["return_30d"] = df["Close"].pct_change(30)
+            df["return_180d"] = df["Close"].pct_change(180)
+            df["return_365d"] = df["Close"].pct_change(365)
             df['rsi'] = ta.momentum.RSIIndicator(df['Close']).rsi()
             df['macd'] = ta.trend.MACD(df['Close']).macd()
             df["stoch"] = ta.momentum.StochasticOscillator(df["High"], df["Low"], df["Close"]).stoch()
@@ -35,7 +39,6 @@ def ticker_data_fetch(ticker: str, interval: str, period: str, feature_cal: bool
             df['sma50'] = df['Close'].rolling(50).mean()
             df['sma100'] = df['Close'].rolling(100).mean()
             df['sma200'] = df['Close'].rolling(200).mean()
-            df["obv"] = ta.volume.OnBalanceVolumeIndicator(df["Close"], df["Volume"]).on_balance_volume()
             df["vwap"] = (df["Volume"] * (df["High"]+df["Low"]+df["Close"])/3).cumsum() / df["Volume"].cumsum()
             df["volume_change"] = df["Volume"].pct_change()
 
@@ -51,16 +54,12 @@ def ticker_data_fetch(ticker: str, interval: str, period: str, feature_cal: bool
             # Target (next-day return direction)
             df['target'] = (df['Close'].shift(-1) > df['Close']).astype(int)
 
-            # Target (next-day return direction)
-            df['target'] = (df['Close'].shift(-1) > df['Close']).astype(int)
-
             # Drop missing rows
             df.dropna(inplace=True)
 
             # Features & labels
-            X = df[['return_1d', 'return_5d', 'return_10d', 'stoch', 'roc', 'williams_r', 'realized_vol_5', 'rolling_std_5', 'rolling_skew_5', 'rolling_kurt_5', 'rsi','macd','sma5','Volume', 'sma10','sma20','sma50','sma100','sma200','sector', 'obv', 'vwap', 'volume_change']]
+            X = df[['return_1d', 'return_7d', 'return_30d', 'return_180d', 'return_365d', 'stoch', 'roc', 'williams_r', 'realized_vol_5', 'rolling_std_5', 'rolling_skew_5', 'rolling_kurt_5', 'rsi','macd','sma5','Volume', 'sma10','sma20','sma50','sma100','sma200','sector', 'vwap', 'volume_change', 'day_of_week', 'ticker']]
             y = df['target']
-
             return df, X, y
         else:
             return df, None, None
