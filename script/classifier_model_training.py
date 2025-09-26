@@ -47,7 +47,8 @@ def stack_models(X, y, num_cols, cat_cols):
     # Base models
     base_models = [
         ("xgb", XGBClassifier(use_label_encoder=False, eval_metric="error")),
-        ("lgbm", LGBMClassifier())
+        ("lgbm", LGBMClassifier()),
+        ("cat", CatBoostClassifier(verbose=0, random_state=random_state))
     ]
 
     # Meta-model
