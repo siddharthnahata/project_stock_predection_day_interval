@@ -1,14 +1,16 @@
-from tickers import tickers_ns # list of the tickers
-from model_data_fetch import model_data
-from classifier_model_training import stack_models
+from tickers import get_ticker_nse # list of the tickers
+from script.model_data_fetch import model_data
+from script.classifier_model_training import stack_models
+from datetime import datetime
 import joblib
 import os
 
 MODEL_FOLDER = "model"
-MODEL_NAME = "stock_prediction.pkl"
-MODEL_PATH = f"{MODEL_FOLDER}/{MODEL_NAME}"
-
 os.makedirs(MODEL_FOLDER, exist_ok=True)
+MODEL_NAME = f"stock_prediction{datetime.now().strftime('%d-%m-%Y_%H-%M-%S')}.pkl"
+MODEL_PATH = os.path.join(MODEL_FOLDER, MODEL_NAME)
+
+tickers_ns = get_ticker_nse()
 
 # loading/getting model data to fit in the model
 X, y, cat_cols, num_cols = model_data(ticker_list=tickers_ns)

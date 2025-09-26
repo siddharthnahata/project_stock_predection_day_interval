@@ -2,11 +2,6 @@ import pandas as pd
 import yfinance as yf
 import ta
 import concurrent.futures
-import os
-
-DATA_FOLDER = "data"
-DATA_FILE_NAME = "model_data.csv"
-DATA_PATH = f"{DATA_FOLDER}/{DATA_FILE_NAME}"
 
 # this function can be used when updating the model and in production model updating
 def ticker_data_fetch(ticker: str, interval: str, period: str, feature_cal: bool):
@@ -96,8 +91,7 @@ def model_data(ticker_list):
     main_base_df = pd.concat(main_base_df_list, axis=0).reset_index(drop=True)
     X = pd.concat(X_list, axis=0).reset_index(drop=True)
     y = pd.concat(y_list, axis=0).reset_index(drop=True)
-    #saving the data
-    main_base_df.to_csv(DATA_PATH, index=False)
+
     cat_cols = []
     num_cols = []
     for i in X.columns:

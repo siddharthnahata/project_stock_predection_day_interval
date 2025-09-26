@@ -23,7 +23,7 @@ def predict_with_threshold(model, features, threshold):
 
 
 
-def stack_models(X, y, num_cols, cat_cols, random_state=42):
+def stack_models(X, y, num_cols, cat_cols):
     """
         this code is where classification model is being build can be modifed as per you research.
     """
@@ -46,9 +46,9 @@ def stack_models(X, y, num_cols, cat_cols, random_state=42):
 
     # Base models
     base_models = [
-        ("xgb", XGBClassifier(use_label_encoder=False, eval_metric="mlogloss", random_state=random_state)),
-        ("lgbm", LGBMClassifier(random_state=random_state)),
-        ("cat", CatBoostClassifier(verbose=0, random_state=random_state))
+        ("xgb", XGBClassifier(use_label_encoder=False, eval_metric="error")),
+        ("lgbm", LGBMClassifier()),
+        ("cat", CatBoostClassifier(verbose=0))
     ]
 
     # Meta-model
