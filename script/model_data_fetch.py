@@ -69,7 +69,7 @@ def safe_fetch(ticker: str, interval: str, period: str, feature_cal: bool):
         print(f"[ERROR] {ticker}: {e}")
         return None
 
-def model_data(ticker_list, interval="1d", period="1y", feature_cal=True):
+def model_data(ticker_list, interval="1d", period="5y", feature_cal=True):
     main_base_df_list = []
     X_list = []
     y_list = []
