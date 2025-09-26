@@ -73,6 +73,6 @@ performance_df = pd.DataFrame(list(performance_results))
 # Optionally, save to CSV
 try:
     performance_df.to_csv(FILE_PATH, index=False)
-    print("Sucessfully savec the data on", FILE_PATH)
+    print("Sucessfully saved the data on", FILE_PATH)
 except Exception as e:
     print("Error while saving: ", e)
