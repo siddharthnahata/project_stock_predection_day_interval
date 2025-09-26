@@ -9,7 +9,7 @@ warnings.filterwarnings('ignore')
 FOLDER_NAME = "trade_data"
 os.makedirs(FOLDER_NAME, exist_ok=True)
 FILE_NAME = f"trade_performance{datetime.now().strftime('%d-%m-%Y_%H-%M-%S')}.csv"
-FILE_PATH = f"{FOLDER_NAME}/{FILE_NAME}"
+FILE_PATH = os.path.join(FOLDER_NAME, FILE_NAME)
 
 data_folder = None
 while data_folder is None:

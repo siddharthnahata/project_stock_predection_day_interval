@@ -1,5 +1,5 @@
 from script.trade_calculator import request_to_api_loacal_host
-from script.tickers import tickers_ns
+from script.tickers import get_ticker_nse
 import os
 import pandas as pd
 import concurrent.futures
@@ -11,9 +11,11 @@ warnings.filterwarnings('ignore')
 
 TRADE_DATA_FOLDER = "trade_data"
 TRADE_DATA_FILE_NAME = f"trades-{datetime.now().strftime('%d-%m-%Y_%H-%M-%S')}.csv"
-TRADE_DATA_PATH = f"{TRADE_DATA_FOLDER}/{TRADE_DATA_FILE_NAME}"
+TRADE_DATA_PATH = os.path.join(TRADE_DATA_FOLDER, TRADE_DATA_FILE_NAME)
 
 os.makedirs(TRADE_DATA_FOLDER, exist_ok=True)
+
+tickers_ns = get_ticker_nse()
 
 sample_ticker = None
 while sample_ticker is None:

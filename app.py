@@ -7,13 +7,32 @@ import joblib
 from script.model_data_fetch import safe_fetch
 from script.classifier_model_training import predict_with_threshold
 from script.train_volatility_prediction import volatility_predict
+import os
 
 import warnings
 warnings.filterwarnings('ignore')
 
-MODEL_FILE_NAME = "stock_prediction.pkl"
 MODEL_FOLDER = "model"
-MODEL_PATH = f"{MODEL_FOLDER}/{MODEL_FILE_NAME}"
+model_files = [f for f in os.listdir(MODEL_FOLDER) if f.endswith('.pkl')]
+if not model_files:
+    raise FileNotFoundError("No .pkl model files found in the model folder.")
+
+print("Available models:")
+for idx, fname in enumerate(model_files, 1):
+    print(f"{idx}: {fname}")
+
+selected = None
+while selected is None:
+    try:
+        user_input = input("Enter the number of the model to use: ")
+        selected_idx = int(user_input) - 1
+        if 0 <= selected_idx < len(model_files):
+            selected = model_files[selected_idx]
+        else:
+            print("Invalid selection. Try again.")
+    except Exception:
+        print("Invalid input. Please enter a valid number.")
+MODEL_PATH = os.path.join(MODEL_FOLDER, selected)
 
 model = joblib.load(MODEL_PATH)
 
