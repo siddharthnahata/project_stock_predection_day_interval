@@ -15,10 +15,7 @@ def ticker_data_fetch(ticker: str, interval: str, period: str, feature_cal: bool
             return None, None, None       
 
         if feature_cal:
-            df.index = df.index.strftime("%Y-%m-%d")
             # Technical indicators
-
-        # Technical indicators
             df["return_1d"] = df["Close"].pct_change(1)
             df["return_7d"] = df["Close"].pct_change(7)
             df["return_30d"] = df["Close"].pct_change(30)
@@ -46,17 +43,17 @@ def ticker_data_fetch(ticker: str, interval: str, period: str, feature_cal: bool
             sector = t.info.get('sector', 'Unknown')
             df['sector'] = sector
 
-            df.index = pd.to_datetime(df.index)
-            df['day_of_week'] = df.index.day_name()
+            df['date_str'] = pd.to_datetime(df.index)
+            df['day_of_week'] = df['date_str'].dt.day_name()
             
             df['ticker'] = ticker
 
             # Target (next-day return direction)
             df['target'] = (df['Close'].shift(-1) > df['Close']).astype(int)
-
-            # Drop missing rows
+            
+            # dropping null values
             df.dropna(inplace=True)
-
+            
             # Features & labels
             X = df[['return_1d', 'return_7d', 'return_30d', 'return_180d', 'return_365d', 'stoch', 'roc', 'williams_r', 'realized_vol_5', 'rolling_std_5', 'rolling_skew_5', 'rolling_kurt_5', 'rsi','macd','sma5','Volume', 'sma10','sma20','sma50','sma100','sma200','sector', 'vwap', 'volume_change', 'day_of_week', 'ticker']]
             y = df['target']

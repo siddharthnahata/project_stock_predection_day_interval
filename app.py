@@ -83,8 +83,8 @@ def predict(data: InputData):
         df, X, _ = safe_fetch(
             data.ticker,
             interval="1d",
-            period="1y",
-            feature_cal=True
+            period="5y",
+            feature_cal=True,
         )
 
         last_date = df.index[-1]
