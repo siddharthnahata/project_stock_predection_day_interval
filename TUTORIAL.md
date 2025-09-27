@@ -7,7 +7,8 @@ python api_app.py
 ```
 
 Step 2. Using Windows Command Line.
-
+- First Select Model to use.
+- Then using different CLI post this request using post method with payload.
 ```
 
 curl -X 'POST' \
@@ -15,8 +16,8 @@ curl -X 'POST' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-  "ticker": "string",
-  "threshold": float
+  "ticker": "string", # this is the ticker which is target
+  "threshold": float # this is thres limit.
 }'
 
 ```
