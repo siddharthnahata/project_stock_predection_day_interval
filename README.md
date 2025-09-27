@@ -96,7 +96,7 @@ Step 4. Run the application server
 
 ```
 
-python run.py
+python ui_app.py
 
 ```
 
@@ -104,7 +104,7 @@ Step 5. Prediction application
 
 ```
 
-http://localhost:5000/predict
+http://localhost:8501/
 
 ```
 

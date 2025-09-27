@@ -53,3 +53,18 @@ python main.py
 Note: you have ensure api is live.
 - Output will look like this [trade_data/](trade_data/)
 
+Step 9. Direct Usecase UI
+- This script launches the model using streamlit.
+
+```
+streamlit run ui_app.py
+
+```
+
+Step- Whole UI-
+- Note: you have to first make api_app.py live then run this script
+
+```
+streamlit run app.py
+
+```
