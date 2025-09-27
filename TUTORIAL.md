@@ -2,7 +2,7 @@ Step 1. Running API.
 
 ```
 
-python run.py
+python api_app.py
 
 ```
 
@@ -44,24 +44,7 @@ Step 6. After pressing Try it out.
 Step 7. Response.
 ![](image/FastAPI_response.png)
 
-Step 8. main.py
-- This script will run on ticker list under script>ticker.py and generate stop loss and traget price. passed in a csv file.
-```
-python main.py
-
-```
-Note: you have ensure api is live.
-- Output will look like this [trade_data/](trade_data/)
-
-Step 9. Direct Usecase UI
-- This script launches the model using streamlit.
-
-```
-streamlit run ui_app.py
-
-```
-
-Step- Whole UI-
+Step 8 - Whole UI-
 - Note: you have to first make api_app.py live then run this script
 
 ```
