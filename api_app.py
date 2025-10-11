@@ -14,30 +14,10 @@ import warnings
 warnings.filterwarnings('ignore')
 
 MODEL_FOLDER = "model"
-model_files = [f for f in os.listdir(MODEL_FOLDER) if f.endswith('.pkl')]
-if not model_files:
-    raise FileNotFoundError("No .pkl model files found in the model folder.")
-
-print("Available models:")
-for idx, fname in enumerate(model_files, 1):
-    print(f"{idx}: {fname}")
-
-selected = None
-while selected is None:
-    try:
-        user_input = input("Enter the number of the model to use: ")
-        selected_idx = int(user_input) - 1
-        if 0 <= selected_idx < len(model_files):
-            selected = model_files[selected_idx]
-        else:
-            print("Invalid selection. Try again.")
-    except Exception:
-        print("Invalid input. Please enter a valid number.")
-MODEL_PATH = os.path.join(MODEL_FOLDER, selected)
+MODEL_FILE_NAME = "stock_prediction26-09-2025_21-59-07.pkl"
+MODEL_PATH = os.path.join(MODEL_FOLDER, MODEL_FILE_NAME)
 
 model = joblib.load(MODEL_PATH)
-
-print("Starting up the API model....")
 
 app = FastAPI(title="ML API with Automated feature fetech")
 
