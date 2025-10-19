@@ -83,7 +83,7 @@ def model_data(ticker_list, interval="1d", period="5y", feature_cal=True):
     # Run in parallel
 
     print("Starting the fetching process...")
-    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
         results = list(executor.map(lambda p: safe_fetch(*p), args))
 
     failded_fetch = []
